@@ -105,6 +105,23 @@ describe('Calculator', () => {
     expect(runningTotal.text()).toEqual('7');
   })
 
+  it('should change the running total, affecting the calculation', () => {
+    const button1 = container.find('#number1');
+    const button4 = container.find('#number4');
+    const addButton = container.find('#operator_add');
+    const equalButton = container.find('#operator-equals');
+    const runningTotal = container.find('#running-total');
+    const clearButton = container.find('#clear')
+    button1.simulate('click');
+    addButton.simulate('click');
+    button4.simulate('click');
+    equalButton.simulate('click');
+    expect(runningTotal.text()).toEqual('5');
+    clearButton.simulate('click')
+    expect(runningTotal.text()).toEqual('0');
+  })
+
+
 
  
 })
