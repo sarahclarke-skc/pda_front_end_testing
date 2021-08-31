@@ -28,9 +28,21 @@ describe('Calculator', () => {
     button4.simulate('click');
     equalButton.simulate('click');
     const runningTotal = container.find('#running-total');
-    expect(runningTotal.text().toEqual('5'));
+    expect(runningTotal.text()).toEqual('5');
   })
 
+  it('should subtract one number from another', () => {
+    const button7 = container.find('#number7');
+    const button4 = container.find('#number4');
+    const subtractButton = container.find('#operator-subtract');
+    const equalButton = container.find('#operator-equals');
+    button7.simulate('click');
+    subtractButton.simulate('click');
+    button4.simulate('click');
+    equalButton.simulate('click');
+    const runningTotal = container.find('#running-total');
+    expect(runningTotal.text()).toEqual('3');
+  })
  
 })
 
