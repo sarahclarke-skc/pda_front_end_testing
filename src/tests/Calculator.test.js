@@ -85,6 +85,26 @@ describe('Calculator', () => {
     expect(runningTotal.text()).toEqual('217');
   })
 
+  it('should chain multiple operations together', () => {
+    const button2 = container.find('#number2');
+    const button1 = container.find('#number1');
+    const button7 = container.find('#number7');
+    const button4 = container.find('#number4')
+    const addButton = container.find('#operator_add');
+    const divideButton = container.find('#operator-divide');
+    const equalButton = container.find('#operator-equals');
+    button2.simulate('click');
+    button1.simulate('click');
+    divideButton.simulate('click');
+    button7.simulate('click');
+    equalButton.simulate('click');
+    addButton.simulate('click');
+    button4.simulate('click');
+    equalButton.simulate('click');
+    const runningTotal = container.find('#running-total');
+    expect(runningTotal.text()).toEqual('7');
+  })
+
 
  
 })
