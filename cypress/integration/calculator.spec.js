@@ -39,4 +39,12 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '10.4')
   })
 
+  it('should return error when dividing by 0', () => {
+    cy.get('#number5').click();
+    cy.get('#operator-divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain', 'Error')
+  })
+
 })
